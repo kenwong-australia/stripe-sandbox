@@ -1,23 +1,33 @@
 #!/usr/bin/env bash
-# Creates Essential plan in the SANDBOX account
+# create_standard_plan_sandbox.sh
+# Creates the “Standard Plan” catalogue in your Launch_test sandbox.
+# Run:  chmod +x create_standard_plan_sandbox.sh && ./create_standard_plan_sandbox.sh
 
-stripe --profile sandbox products create \
+# ---------- Product ----------
+stripe products create --project-name Launch_test \
   --id=prod_standard \
   --name="Standard Plan" \
-  --description="Praxio AI - Standard Plan"
+  --description="Praxio AI – Standard Plan"
 
-stripe --profile sandbox prices create \
+# ---------- Monthly price ----------
+stripe prices create --project-name Launch_test \
   --product=prod_standard \
-  --unit_amount=7900 --currency=aud \
+  --unit_amount=7900 \
+  --currency=aud \
   --recurring[interval]=month \
   --lookup_key=standard_monthly
 
-stripe --profile sandbox prices create \
+# ---------- Annual price ----------
+stripe prices create --project-name Launch_test \
   --product=prod_standard \
-  --unit_amount=86900 --currency=aud \
+  --unit_amount=86900 \
+  --currency=aud \
   --recurring[interval]=year \
   --lookup_key=standard_yearly
 
-stripe --profile sandbox tax_rates create \
-  --display_name="GST" --percentage=10 \
-  --inclusive=true --country=AU
+# ---------- Inclusive 10 % GST ----------
+stripe tax_rates create --project-name Launch_test \
+  --display_name="GST" \
+  --percentage=10 \
+  --inclusive=true \
+  --country=AU
