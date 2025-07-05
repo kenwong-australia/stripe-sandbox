@@ -2,21 +2,21 @@
 # Creates Essential plan in the SANDBOX account
 
 stripe --profile sandbox products create \
-  --id=prod_essential \
-  --name="Essential Plan" \
-  --description="Core AI tax-advisor features"
+  --id=prod_standard \
+  --name="Standard Plan" \
+  --description="Praxio AI - Standard Plan"
 
 stripe --profile sandbox prices create \
-  --product=prod_essential \
-  --unit_amount=7000 --currency=aud \
+  --product=prod_standard \
+  --unit_amount=7900 --currency=aud \
   --recurring[interval]=month \
-  --lookup_key=essential_monthly
+  --lookup_key=standard_monthly
 
 stripe --profile sandbox prices create \
-  --product=prod_essential \
-  --unit_amount=700000 --currency=aud \
+  --product=prod_standard \
+  --unit_amount=86900 --currency=aud \
   --recurring[interval]=year \
-  --lookup_key=essential_annual
+  --lookup_key=standard_yearly
 
 stripe --profile sandbox tax_rates create \
   --display_name="GST" --percentage=10 \
