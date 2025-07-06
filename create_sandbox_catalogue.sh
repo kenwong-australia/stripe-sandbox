@@ -8,28 +8,28 @@
 #  --name "Standard Plan" \
 #  --description "Praxio AI – Standard Plan"
 
-# ---------- Monthly price ----------
+# ---------- 2  Monthly price ----------
 stripe prices create \
   --project-name Launch_test \
-  --data product=prod_standard \
-  --data unit_amount=7900 \
-  --data currency=aud \
-  --data recurring[interval]=month \
-  --data lookup_key=standard_monthly
+  -d product=prod_standard \
+  -d unit_amount=7900 \
+  -d currency=aud \
+  -d recurring[interval]=month \
+  -d lookup_key=standard_monthly
 
-# ---------- Annual price ----------
+# ---------- 3  Annual price ----------
 stripe prices create \
   --project-name Launch_test \
-  --data product=prod_standard \
-  --data unit_amount=86900 \
-  --data currency=aud \
-  --data recurring[interval]=year \
-  --data lookup_key=standard_yearly
+  -d product=prod_standard \
+  -d unit_amount=86900 \
+  -d currency=aud \
+  -d recurring[interval]=year \
+  -d lookup_key=standard_yearly
 
-# ---------- Inclusive 10 % GST ----------
+# ---------- 4  Inclusive 10 % GST ----------
 stripe tax_rates create \
   --project-name Launch_test \
-  --data display_name="GST" \
-  --data percentage=10 \
-  --data inclusive=true \
-  --data country=AU
+  -d display_name="GST" \
+  -d percentage=10 \
+  -d inclusive=true \
+  -d country=AU
