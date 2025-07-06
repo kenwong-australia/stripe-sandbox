@@ -3,10 +3,10 @@
 # Builds the Standard plan catalogue in the Launch_test sandbox
 
 # ---------- Product ----------
-stripe products create --project-name Launch_test \
-  --id prod_standard \
-  --name "Standard Plan" \
-  --description "Praxio AI – Standard Plan"
+#stripe products create --project-name Launch_test \
+#  --id prod_standard \
+#  --name "Standard Plan" \
+#  --description "Praxio AI – Standard Plan"
 
 # ---------- Monthly price ----------
 stripe prices create --project-name Launch_test \
